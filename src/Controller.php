@@ -26,13 +26,17 @@ class Controller
   {
     $viewParams = [];
   
+  
     switch ($this->action()) {
       case 'searched':
-        $page = 'searched';
+        $page = 'basic';
         $created = false;
 
         $data = $this->getRequestPost();
-        SearchData::getDataFromKrs($data);
+        if(!empty($data)){
+          SearchData::getDataFromKrs($data);
+        };
+        
         // dump($data);
         // if (!empty($data)) {
         //   $created = true;
@@ -77,7 +81,7 @@ class Controller
         break;
     }
 
-    $this->view->render($page, $viewParams, $this->getRequestPost(), dump(SearchData::$response));
+    $this->view->render($page, $viewParams, $this->getRequestPost(), SearchData::$response??[]);
   }
 
   private function action(): string
@@ -93,6 +97,7 @@ class Controller
 
   private function getRequestPost(): array
   {
+
     return $this->request['post'] ?? [];
   }
 }

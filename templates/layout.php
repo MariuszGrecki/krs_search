@@ -6,17 +6,19 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
   rel="stylesheet"
    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+   <script defer="defer" type="text/javascript" src="files.js"></script>
   <link href="/public/style.css" rel="stylesheet">
 </head>
 
 <body class="body">
+  <?php dump($data) ?>
   <div class="wrapper">
     <div class="header">
       <div class="header__title">
       <h1>Wyszukiwarka wpisów z KRS</h1>
       </div>
-      <form method="post" class="search__section" action="/?action=searched">
-      <input 
+      <form name="form" method="post" class="search__section" action="/?action=searched" onsubmit="return validateForm()">
+      <input  required
               class="form-control" 
               type="text" 
               name="krsNumber" 
@@ -24,7 +26,7 @@
               value="<?php if($getData){echo $getData['krsNumber'];}?>"
               >
 
-      <select class="form-select" name="krsType" aria-label="Default select example">
+      <select class="form-select" name="krsType" aria-label="Default select example" id="krsTypeSelect">
           <option selected><?php if($getData){echo $getData['krsType'];}else{echo "Typ Przedsiębiorstwa";}?></option>
           <option value="Przedsiębiorstwo">Przedsiębiorstwo</option>
           <option value="Stowarzyszenie">Stowarzyszenie</option>
@@ -38,15 +40,36 @@
     <div class="main__body">
       <div class="menu">
         <ul>
-          <li><a href="/?action=basic">Dane podstawowe z KRS</a></li>
-          <li><a href="/?action=management">Zarząd</a></li>
-          <li><a href="/?action=holders">Udziałowcy</a></li>
-          <li><a href="/?action=rest">Pozostałe dane z krs</a></li>
+          <li><button type="button" class="menu__button title__basic">Dane podstawowe z KRS</button></li>
+          <li><button type="button" class="menu__button title__holders">Zarząd</button></li>
+          <li><button type="button" class="menu__button title__management">Udziałowcy</button></li>
+          <li><button type="button" class="menu__button title__rest">Pozostałe dane z krs</button></li>
         </ul>
       </div>
-      <div class="page">
-        <?php require_once("templates/pages/$page.php"); ?>
+      <?php if($page=='welcome'): ?>
+        <div class="page body__welcome">
+        <?php require_once("templates/pages/welcome.php"); ?>
+        </div>
+        <div class="page body__alerts display__none">
+        <?php require_once("templates/pages/alerts.php"); ?>
       </div>
+      <?php else : ?>
+        <div class="page body__basic">
+        <?php require_once("templates/pages/basic.php"); ?>
+      </div>
+      <div class="page body__holders display__none">
+        <?php require_once("templates/pages/holders.php"); ?>
+      </div>
+      <div class="page body__management display__none">
+        <?php require_once("templates/pages/management.php"); ?>
+      </div>
+      <div class="page body__rest display__none">
+        <?php require_once("templates/pages/rest.php"); ?>
+      </div>
+      <div class="page body__alerts display__none">
+        <?php require_once("templates/pages/alerts.php"); ?>
+      </div>
+      <?php endif; ?>
     </div>
   </div>
 

@@ -25,6 +25,47 @@ body {
   margin: 0;
 }
 
+.display__none{
+  display:none !important;
+}
+
+.information__box{
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
+
+.information__header{
+  display:flex;
+  flex-direction: column;
+}
+
+.information__title{
+  font-size: 90%;
+  color: #5278BF;
+  font-weight: bold;
+  width: 160px;
+  min-width: 160px;
+  max-width: 200px;
+  height: auto;
+  float: left;
+}
+
+
+.information__data{
+  font-size: 80%;
+  color: black;
+  padding-left: 5px;
+  width: auto;
+  min-width: 160px;
+  max-width: 100%;
+  height: auto;
+  float: left;
+  word-wrap: break-word;
+}
+
 .search__section {
   display: flex;
   justify-content: flex-start;
@@ -65,6 +106,14 @@ form .required {
   color: red;
 }
 
+.break {
+  padding-top: 10px;
+}
+
+.body__welcome {
+  width: calc(80% - 20px);
+  margin-left: 20px;
+}
 
 .header {
   background: linear-gradient(45deg,#2f5d82 23%,#4e9fe0 100%);
@@ -76,6 +125,14 @@ form .required {
   padding-left: 2rem;;
 }
 
+.alert__box{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 5rem;
+  padding-left: 5rem;
+  font-size: 18px;
+}
 .btn__search{
   margin-left: 2rem;
   width: 15rem;
@@ -110,7 +167,9 @@ form .required {
   background-color: #e6f1f2;
 }
 
-.menu ul a {
+.menu__button {
+  width: 100%;
+  text-align: left;
   display: block;
   color: #424242;
   font-size: 18px;
@@ -118,10 +177,18 @@ form .required {
   padding: 16px 0;
   text-decoration: none;
   padding-left: 2rem;
+  border:none;
+  background-color: white;
 }
 
-.menu ul a:hover {
+.menu__button:disabled{
+  background: #f4eeee;
+  color: #c0b8b8;
+}
+
+.menu__button:hover:not([disabled]) {
   font-weight: bold;
+  background-color: #e6f1f2;
 }
 
 .page {
@@ -235,18 +302,6 @@ tr>td:nth-child(3) {
 
 .settings-form label {
   display: inline-block;
-}
-
-button {
-  border: none;
-  background-color: cadetblue;
-  padding: 5px 10px;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #4691A4;
 }
 
 form.note-form li label {
