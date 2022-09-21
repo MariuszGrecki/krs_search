@@ -14,7 +14,6 @@ class Controller
   private const DEFAULT_ACTION = 'welcome';
   private array $request;
   private View $view;
-  private $requestData;
  
   public function __construct(array $request)
   {
@@ -37,14 +36,6 @@ class Controller
           SearchData::getDataFromKrs($data);
         };
         
-        // dump($data);
-        // if (!empty($data)) {
-        //   $created = true;
-        //   $viewParams = [
-        //     'title' => $data['title'],
-        //     'description' => $data['description']
-        //   ];
-        // }
         $viewParams['created'] = $created;
         break;
       case 'basic':
