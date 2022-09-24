@@ -12,8 +12,8 @@ require_once("src/Utils/Data.php");
 class Controller
 {
   private const DEFAULT_ACTION = 'welcome';
-  private array $request;
-  private View $view;
+  private $request;
+  private $view;
  
   public function __construct(array $request)
   {

@@ -47,23 +47,26 @@ let alertWrongType = document.querySelector('.wrong_krsType');
 
 function validateForm() {
     let krsNumber = document.forms["form"]["krsNumber"].value
-    if (krsNumber == ""|krsNumber.length!=10) {
-      titles.forEach(title => title.setAttribute("disabled", ""))
-      pages.forEach(page => page.classList.add("display__none"))
-      bodyAlerts.classList.remove("display__none")
-      alerts.forEach(alert => alert.classList.add("display__none"))
-      alertWrongNumber.classList.remove("display__none");
-      return false;
-    }
+    krsNumber = krsNumber.replace(/ /g,'')
+    krsNumber = krsNumber.replace(/\D/g,'')
+    document.form.krsNumber.value = krsNumber;
+    if (krsNumber.length!=10) {
+      showBodyOfIncorrectValue(alertWrongNumber)
+      return false;    
+    } 
     let e = document.querySelector("#krsTypeSelect");
     let str = e.options[e.selectedIndex].value;
     if (str != 'Przedsiębiorstwo'&&str != 'Stowarzyszenie') {
+      showBodyOfIncorrectValue(alertWrongType)
+      return false  
+    }
+    titles.forEach(title => title.removeAttribute("disabled"))
+  }
+
+  function showBodyOfIncorrectValue($wrongType){
       titles.forEach(title => title.setAttribute("disabled", ""))
       pages.forEach(page => page.classList.add("display__none"))
       bodyAlerts.classList.remove("display__none")
       alerts.forEach(alert => alert.classList.add("display__none"))
-      alertWrongType.classList.remove("display__none");
-      return false;
-    }
-    titles.forEach(title => title.removeAttribute("disabled"))
+      $wrongType.classList.remove("display__none");
   }

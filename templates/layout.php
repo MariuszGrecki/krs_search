@@ -64,11 +64,7 @@
         <div class="page body__welcome">
           <?php require_once("templates/pages/welcome.php"); ?>
         </div>
-        <div class="page body__alerts display__none">
-          <?php require_once("templates/pages/alerts.php"); ?>
-        </div>
       <?php else : ?>
-
         <?php if (array_key_exists('Error', $data)) : ?>
           <div class="page body__error">
             <?php require_once("templates/pages/error.php"); ?>
@@ -86,11 +82,11 @@
           <div class="page body__rest display__none">
             <?php require_once("templates/pages/rest.php"); ?>
           </div>
-          <div class="page body__alerts display__none">
-            <?php require_once("templates/pages/alerts.php"); ?>
-          </div>
         <?php endif; ?>
       <?php endif; ?>
+      <div class="page body__alerts display__none">
+            <?php require_once("templates/pages/alerts.php"); ?>
+          </div>
     </div>
   </div>
 

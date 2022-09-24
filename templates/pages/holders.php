@@ -19,10 +19,12 @@
              echo "<br/>";
              echo "Numer Pesel: ".$holder['identyfikator']['pesel'];
              echo "<br/>";
+             if(!empty($holder['funkcjaWOrganie'])){
              echo "Funkcja w Organie: ".$holder['funkcjaWOrganie'];
+             }
              echo "<br/>";
          }
-    }
+    } 
     ?> </div>
   </div>
 </div>

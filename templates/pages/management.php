@@ -9,7 +9,9 @@
             ?>
             <h3 class="title__partners">Wspólnik:</h3>
             <?php
+             $flag=0;
              if(!empty($partner['nazwisko']['nazwiskoICzlon'])){
+             $flag++;
              echo "Nawisko: ".$partner['nazwisko']['nazwiskoICzlon'];
              echo "<br/>";
              echo "Imie: ".$partner['imiona']['imie'];
@@ -20,6 +22,7 @@
              echo "<div class='break'></div>";
             }
             if(!empty($partner['nazwa'])){
+                $flag++;
                 echo "Nazwa: ".$partner['nazwa'];
                 echo "<br/>";
                 echo "Identyfikator: ".$partner['identyfikator']['regon'];
@@ -28,8 +31,11 @@
                 echo "<br/>";
                 echo "Posiadane Udziały: ".$partner['posiadaneUdzialy'];
                 echo "<div class='break'></div>";
-               }
+            }
          }
+    } else {
+        echo 'Nie sa zarejstrowani inni wspólnicy';
+
     }
     ?> </div>
   </div>

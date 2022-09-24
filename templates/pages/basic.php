@@ -17,8 +17,12 @@
   </div>
   <div class="information__box">
     <div class="information__title">Status:</div>
-    <div class="information__data"><?php if($data['odpis']['naglowekA']['stanPozycji']==1){
+    <?php if (!empty($data['odpis']['naglowekA']['stanPozycji'])) : ?>
+        <div class="information__data"><?php if($data['odpis']['naglowekA']['stanPozycji']==1){
                                                 echo 'Aktywny';} else {echo 'Nieaktywny';} ?></div>
+    <?php else : ?>
+    <div class="information__data">Nie udało się pobrać wartości</div>
+    <?php endif; ?>
   </div>
   <div class="information__box">
     <div class="information__title">Forma prawna:</div>
@@ -26,11 +30,15 @@
   </div>
   <div class="information__box">
     <div class="information__title">Adres:</div>
-    <div class="information__data"><?php 
+    <?php if (!empty($data['odpis']['dane']['dzial1']['siedzibaIAdres']['adres']['ulica'])) : ?>
+        <div class="information__data"><?php 
                                     echo $data['odpis']['dane']['dzial1']['siedzibaIAdres']['adres']['ulica']??'';
                                     echo  " ".$data['odpis']['dane']['dzial1']['siedzibaIAdres']['adres']['nrDomu']??'';
                                     echo  " ".$data['odpis']['dane']['dzial1']['siedzibaIAdres']['adres']['kodPocztowy']??'';
                                     echo  " ".$data['odpis']['dane']['dzial1']['siedzibaIAdres']['adres']['miejscowosc']??'';?></div>
+    <?php else : ?>
+    <div class="information__data">Nie udało się pobrać wartości</div>
+    <?php endif; ?>
   </div>
   <div class="information__box">
     <div class="information__title">Województwo:</div>
