@@ -4,7 +4,7 @@
   <title>Zadanie_testowe</title>
   <meta charset="utf-8">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script defer="defer" type="text/javascript" src="files.js"></script>
+  <script defer="defer" type="text/javascript" src="index.js"></script>
   <link href="/public/style.css" rel="stylesheet">
 </head>
 

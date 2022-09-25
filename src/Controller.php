@@ -7,7 +7,7 @@ namespace App;
 use SearchData;
 
 require_once("src/View.php");
-require_once("src/Utils/Data.php");
+require_once("src/Utils/getData.php");
 
 class Controller
 {

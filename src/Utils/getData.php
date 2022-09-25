@@ -16,7 +16,7 @@ public static function getDataFromKrs(array $request)
     
     $request['krsType']=='Przedsiębiorstwo'?$request['krsType']='P':$request['krsType']='S';
 
-    $api_url = 'https://api-krs.ms.gov.pl/api/krs/OdpisAktualny/'.$request['krsNumber'].'?rejestr='.$request['krsType'].'&format=json';
+    $api_url = 'https://api-krs.ms.gov.pl/api/krs/OdpisAktualny/'.htmlspecialchars(trim($request['krsNumber']), ENT_QUOTES, "UTF-8").'?rejestr='.$request['krsType'].'&format=json';
 
     $client = new \GuzzleHttp\Client();
 
@@ -38,7 +38,7 @@ public static function getDataFromKrs(array $request)
         };
     }
 
-    dump(self::$response);
+    //dump(self::$response);
  
 }
 }

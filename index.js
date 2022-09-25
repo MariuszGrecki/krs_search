@@ -47,8 +47,7 @@ let alertWrongType = document.querySelector('.wrong_krsType');
 
 function validateForm() {
     let krsNumber = document.forms["form"]["krsNumber"].value
-    krsNumber = krsNumber.replace(/ /g,'')
-    krsNumber = krsNumber.replace(/\D/g,'')
+    krsNumber = krsNumber.replace(/[&\/\\#,+()$~%.'":*?<>{}\D/ /]/g, '');
     document.form.krsNumber.value = krsNumber;
     if (krsNumber.length!=10) {
       showBodyOfIncorrectValue(alertWrongNumber)
