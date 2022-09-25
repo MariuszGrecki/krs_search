@@ -20,17 +20,17 @@
               class="form-control" 
               type="text" 
               name="krsNumber" 
-              placeholder="<?php if ($getData) {echo $getData['krsNumber'];} else {echo "Numer Przedsiębiorstwa";} ?>" 
-              value="<?php if ($getData) {echo $getData['krsNumber']; } ?>">
+              placeholder="<?php if ($subject) {echo $subject['krsNumber'];} else {echo "Numer Przedsiębiorstwa";} ?>" 
+              value="<?php if ($subject) {echo $subject['krsNumber']; } ?>">
           <select class="form-select" name="krsType" aria-label="Default select example" id="krsTypeSelect">
-          <option selected><?php if ($getData) {
-                              echo $getData['krsType'];
+          <option selected><?php if ($subject) {
+                              echo $subject['krsType'];
                             } else {
                               echo "Typ Przedsiębiorstwa";
                             } ?></option>
-          <?php if ($getData['krsType'] == 'Przedsiębiorstwo') : ?>
+          <?php if ($subject['krsType'] == 'Przedsiębiorstwo') : ?>
             <option value="Stowarzyszenie">Stowarzyszenie</option>
-          <?php elseif ($getData['krsType'] == 'Stowarzyszenie') : ?>
+          <?php elseif ($subject['krsType'] == 'Stowarzyszenie') : ?>
             <option value="Przedsiębiorstwo">Przedsiębiorstwo</option>
           <?php else : ?>
             <option value="Przedsiębiorstwo">Przedsiębiorstwo</option>
@@ -46,18 +46,14 @@
     <div class="main__body">
       <div class="menu">
         <ul>
-          <li><button type="button" class="menu__button title__basic" <?php if ($page == 'welcome'||array_key_exists('Error', $data)) {
-                                                                        echo 'disabled';
-                                                                      } ?>>Dane podstawowe z KRS</button></li>
-          <li><button type="button" class="menu__button title__holders" <?php if ($page == 'welcome'||array_key_exists('Error', $data)) {
-                                                                          echo 'disabled';
-                                                                        } ?>>Zarząd</button></li>
-          <li><button type="button" class="menu__button title__management" <?php if ($page == 'welcome'||array_key_exists('Error', $data)) {
-                                                                              echo 'disabled';
-                                                                            } ?>>Udziałowcy</button></li>
-          <li><button type="button" class="menu__button title__rest" <?php if ($page == 'welcome'||array_key_exists('Error', $data)) {
-                                                                        echo 'disabled';
-                                                                      } ?>>Pozostałe dane z krs</button></li>
+          <li><button type="button" class="menu__button title__basic" 
+          <?php if ($page == 'welcome'||array_key_exists('Error', $data)) { echo 'disabled';} ?>>Dane podstawowe z KRS</button></li>
+          <li><button type="button" class="menu__button title__holders" 
+          <?php if ($page == 'welcome'||array_key_exists('Error', $data)) {echo 'disabled';} ?>>Zarząd</button></li>
+          <li><button type="button" class="menu__button title__management" 
+          <?php if ($page == 'welcome'||array_key_exists('Error', $data)) { echo 'disabled';} ?>>Udziałowcy</button></li>
+          <li><button type="button" class="menu__button title__rest" 
+          <?php if ($page == 'welcome'||array_key_exists('Error', $data)) {echo 'disabled';} ?>>Pozostałe dane z krs</button></li>
         </ul>
       </div>
       <?php if ($page == 'welcome') : ?>
