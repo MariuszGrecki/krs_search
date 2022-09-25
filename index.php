@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 namespace App;
+use Controller\Controller;
 
 require_once("src/Controller.php");
 

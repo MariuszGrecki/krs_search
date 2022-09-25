@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App;
-use SearchData;
+namespace Controller;
+use App\Search\SearchData;
+use App\View\View;
 
 require_once("src/View.php");
 require_once("src/Utils/getData.php");
 
-class Controller
+class Controller extends SearchData
 {
   private const DEFAULT_ACTION = 'welcome';
   private $request;

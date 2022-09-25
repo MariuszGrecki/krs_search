@@ -1,5 +1,9 @@
 <?php
+
 declare(strict_types=1);
+
+namespace App\Search;
+
 require '../vendor/autoload.php';
 
 use GuzzleHttp\Client;
@@ -9,9 +13,8 @@ use Guzzle\Http\Exception\BadResponseException;
 
 class SearchData 
 {
-public static $response;
-
-public static function getDataFromKrs(array $request) 
+protected static $response;
+protected static function getDataFromKrs(array $request) 
 {
     
     $request['krsType']!='Stowarzyszenie'?$request['krsType']='P':$request['krsType']='S';
