@@ -14,7 +14,7 @@ public static $response;
 public static function getDataFromKrs(array $request) 
 {
     
-    $request['krsType']=='Przedsiębiorstwo'?$request['krsType']='P':$request['krsType']='S';
+    $request['krsType']!='Stowarzyszenie'?$request['krsType']='P':$request['krsType']='S';
 
     $api_url = 'https://api-krs.ms.gov.pl/api/krs/OdpisAktualny/'.htmlspecialchars(trim($request['krsNumber']), ENT_QUOTES, "UTF-8").'?rejestr='.$request['krsType'].'&format=json';
 
@@ -37,8 +37,6 @@ public static function getDataFromKrs(array $request)
             self::$response = ['Error'=>'Error'];
         };
     }
-
-    //dump(self::$response);
  
 }
 }

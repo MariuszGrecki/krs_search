@@ -41,7 +41,7 @@
          foreach($activities as $activity) {
             echo "Opis: ".$activity['opis'];
             echo "<br/>";
-            echo "Kod: ".$activity['kodDzial'].".".$activity['kodKlasa'].".".(!empty($activity['kodPodklasa'])?$activity['kodPodklasa']:'');
+            echo "Kod: ".$activity['kodDzial'].".".(!empty($activity['kodKlasa'])?$activity['kodKlasa']:'').".".(!empty($activity['kodPodklasa'])?$activity['kodPodklasa']:'');
             echo "<br/>";
          }
     } else {

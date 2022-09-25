@@ -30,9 +30,6 @@ class Controller
           SearchData::getDataFromKrs($data);
         };
         break;
-      case 'welcome':
-        $page = 'welcome';
-        break;
       default:
         $page = 'welcome';
         break;
